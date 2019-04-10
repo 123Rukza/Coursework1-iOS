@@ -22,10 +22,6 @@ class KeyboardViewController: UIViewController {
         let vc = self.parent as! ParentUIViewController
         vc.updateUIFromKeyboard(content: (sender.titleLabel?.text!)!)
     }
-    
-    
-    @IBAction func keyboardDeleteBUtton(_ sender: UIButton) {
-        
-    }
+
     
 }

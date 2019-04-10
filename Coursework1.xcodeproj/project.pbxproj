@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0A3C73FF224D5E170052F8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C73FE224D5E170052F8E7 /* AppDelegate.swift */; };
-		0A3C7401224D5E170052F8E7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C7400224D5E170052F8E7 /* FirstViewController.swift */; };
-		0A3C7403224D5E170052F8E7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C7402224D5E170052F8E7 /* SecondViewController.swift */; };
 		0A3C7406224D5E170052F8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C7404224D5E170052F8E7 /* Main.storyboard */; };
 		0A3C7408224D5E190052F8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C7407224D5E190052F8E7 /* Assets.xcassets */; };
 		0A3C740B224D5E190052F8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C7409224D5E190052F8E7 /* LaunchScreen.storyboard */; };
 		0ADF92A9225DFB3E00AFC5F2 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF92A8225DFB3E00AFC5F2 /* KeyboardViewController.swift */; };
 		0ADF92AB225E00DB00AFC5F2 /* ParentUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF92AA225E00DB00AFC5F2 /* ParentUIViewController.swift */; };
+		0ADF92AE225E6AC200AFC5F2 /* UnitConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF92AD225E6AC200AFC5F2 /* UnitConversions.swift */; };
 		0AF9F1AA224E82D6003428AA /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF9F1A9224E82D6003428AA /* WeightViewController.swift */; };
 		0AF9F1AC224E82FC003428AA /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF9F1AB224E82FC003428AA /* TemperatureViewController.swift */; };
 		0AF9F1AE224E830E003428AA /* LengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF9F1AD224E830E003428AA /* LengthViewController.swift */; };
@@ -25,14 +24,13 @@
 /* Begin PBXFileReference section */
 		0A3C73FB224D5E170052F8E7 /* Coursework1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coursework1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3C73FE224D5E170052F8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A3C7400224D5E170052F8E7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		0A3C7402224D5E170052F8E7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		0A3C7405224D5E170052F8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A3C7407224D5E190052F8E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A3C740A224D5E190052F8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A3C740C224D5E190052F8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ADF92A8225DFB3E00AFC5F2 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		0ADF92AA225E00DB00AFC5F2 /* ParentUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentUIViewController.swift; sourceTree = "<group>"; };
+		0ADF92AD225E6AC200AFC5F2 /* UnitConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConversions.swift; sourceTree = "<group>"; };
 		0AF9F19F224E8276003428AA /* convert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = convert.png; sourceTree = "<group>"; };
 		0AF9F1A0224E8276003428AA /* cubeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cubeIcon.png; sourceTree = "<group>"; };
 		0AF9F1A1224E8276003428AA /* distance icon 50p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distance icon 50p.png"; sourceTree = "<group>"; };
@@ -79,17 +77,24 @@
 		0A3C73FD224D5E170052F8E7 /* Coursework1 */ = {
 			isa = PBXGroup;
 			children = (
+				0ADF92AC225E6A6D00AFC5F2 /* Utilities */,
 				0AF9F1A8224E82AE003428AA /* Controllers */,
 				0AF9F19E224E8276003428AA /* Icons */,
 				0A3C73FE224D5E170052F8E7 /* AppDelegate.swift */,
-				0A3C7400224D5E170052F8E7 /* FirstViewController.swift */,
-				0A3C7402224D5E170052F8E7 /* SecondViewController.swift */,
 				0A3C7404224D5E170052F8E7 /* Main.storyboard */,
 				0A3C7407224D5E190052F8E7 /* Assets.xcassets */,
 				0A3C7409224D5E190052F8E7 /* LaunchScreen.storyboard */,
 				0A3C740C224D5E190052F8E7 /* Info.plist */,
 			);
 			path = Coursework1;
+			sourceTree = "<group>";
+		};
+		0ADF92AC225E6A6D00AFC5F2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0ADF92AD225E6AC200AFC5F2 /* UnitConversions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		0AF9F19E224E8276003428AA /* Icons */ = {
@@ -196,14 +201,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3C7403224D5E170052F8E7 /* SecondViewController.swift in Sources */,
 				0AF9F1B2224E833C003428AA /* VolumeViewController.swift in Sources */,
 				0A3C73FF224D5E170052F8E7 /* AppDelegate.swift in Sources */,
-				0A3C7401224D5E170052F8E7 /* FirstViewController.swift in Sources */,
 				0ADF92A9225DFB3E00AFC5F2 /* KeyboardViewController.swift in Sources */,
 				0AF9F1B0224E831C003428AA /* SpeedViewController.swift in Sources */,
 				0AF9F1AE224E830E003428AA /* LengthViewController.swift in Sources */,
 				0AF9F1AA224E82D6003428AA /* WeightViewController.swift in Sources */,
+				0ADF92AE225E6AC200AFC5F2 /* UnitConversions.swift in Sources */,
 				0ADF92AB225E00DB00AFC5F2 /* ParentUIViewController.swift in Sources */,
 				0AF9F1AC224E82FC003428AA /* TemperatureViewController.swift in Sources */,
 			);

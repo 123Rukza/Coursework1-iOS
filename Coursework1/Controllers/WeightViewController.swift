@@ -43,34 +43,39 @@ class WeightViewController: ParentUIViewController {
         
         if(unit != "none"){
             selectedText?.text = (selectedText?.text!)! + content
-            let unitKG = convertToKilograms(unit: unit, value: Double(selectedText!.text!)!)
-            
-            print(unitKG)
+            let unitKG = UnitConversions.toKilogram(unit: unit, value: Double(selectedText!.text!)!)
+            setValuesToUI(unit: unit, kgValue: unitKG)
         }
     }
     
-    func convertToKilograms(unit: String, value: Double)-> Double {
-        print(unit, value)
-        
-        var unitKG: Double = 0.0
+    func setValuesToUI(unit: String, kgValue: Double) {
         
         if (unit == "kg") {
-            unitKG = Measurement(value: Double(value), unit: UnitMass.kilograms).converted(to: UnitMass.kilograms).value
+            txtGrams.text = String(format:"%.2f", UnitConversions.toGram(value: kgValue))
+            txtOunces.text = String(format:"%.2f", UnitConversions.toOunce(value: kgValue))
+            txtPounds.text = String(format:"%.2f", UnitConversions.toPound(value: kgValue))
+            txtStone.text = String(format:"%.2f", UnitConversions.toStone(value: kgValue))
         } else if (unit == "g") {
-            unitKG = Measurement(value: Double(value), unit: UnitMass.grams).converted(to: UnitMass.kilograms).value
+            txtKilograms.text = String(format:"%.2f", kgValue)
+            txtOunces.text = String(format:"%.2f", UnitConversions.toOunce(value: kgValue))
+            txtPounds.text = String(format:"%.2f", UnitConversions.toPound(value: kgValue))
+            txtStone.text = String(format:"%.2f", UnitConversions.toStone(value: kgValue))
         } else if (unit == "o") {
-            unitKG = Measurement(value: Double(value), unit: UnitMass.ounces).converted(to: UnitMass.kilograms).value
+            txtGrams.text = String(format:"%.2f", UnitConversions.toGram(value: kgValue))
+            txtKilograms.text = String(format:"%.2f", kgValue)
+            txtPounds.text = String(format:"%.2f", UnitConversions.toPound(value: kgValue))
+            txtStone.text = String(format:"%.2f", UnitConversions.toStone(value: kgValue))
         } else if (unit == "p") {
-            unitKG = Measurement(value: Double(value), unit: UnitMass.pounds).converted(to: UnitMass.kilograms).value
+            txtGrams.text = String(format:"%.2f", UnitConversions.toGram(value: kgValue))
+            txtOunces.text = String(format:"%.2f", UnitConversions.toOunce(value: kgValue))
+            txtKilograms.text = String(format:"%.2f", kgValue)
+            txtStone.text = String(format:"%.2f", UnitConversions.toStone(value: kgValue))
         } else {
-            unitKG = Measurement(value: Double(value), unit: UnitMass.stones).converted(to: UnitMass.kilograms).value
+            txtGrams.text = String(format:"%.2f", UnitConversions.toGram(value: kgValue))
+            txtOunces.text = String(format:"%.2f", UnitConversions.toOunce(value: kgValue))
+            txtPounds.text = String(format:"%.2f", UnitConversions.toPound(value: kgValue))
+            txtKilograms.text = String(format:"%.2f", kgValue)
         }
-        
-        return unitKG
-    }
-    
-    func setValuesToUI(unit: String, value: Double) {
-        
     }
 
 }

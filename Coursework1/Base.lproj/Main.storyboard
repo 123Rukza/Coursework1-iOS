@@ -295,7 +295,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                                 <state key="normal" title="DEL"/>
                                                 <connections>
-                                                    <action selector="keyboardDeleteBUtton:" destination="yNw-dd-Pbh" eventType="touchUpInside" id="kGr-Wa-5cx"/>
+                                                    <action selector="keyboardButtonPressed:" destination="yNw-dd-Pbh" eventType="touchUpInside" id="yfR-Iy-Fq5"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW1-bK-XQS">
