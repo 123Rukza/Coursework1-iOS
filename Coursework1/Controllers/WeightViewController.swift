@@ -18,6 +18,7 @@ class WeightViewController: ParentUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func keyboardKeyPressed(value: String) {
@@ -58,7 +59,7 @@ class WeightViewController: ParentUIViewController {
     }
     
     func updateUI(selectedText: UITextField, unit:String, value: String) {
-        let unitKG = UnitConversions.toKilogram(unit: unit, value: Double(selectedText.text!)!)
+        let unitKG = UnitConversions.standardizeToKilogram(unit: unit, value: Double(selectedText.text!)!)
         setValuesToUI(unit: unit, kgValue: unitKG)
     }
     
