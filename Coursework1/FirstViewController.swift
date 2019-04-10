@@ -8,13 +8,28 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+protocol UpdateSubViewDelegate {
+    func keyPressed(btn: UIButton)
+}
 
+class FirstViewController: UIViewController {
+    
+    var delegate: UpdateSubViewDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue_weight_embed" {
+            let containerVC = segue.destination  as!   WeightViewController
+//            self.delegate = containerVC
+        }
+    }
+    
+    @IBAction func click_CalculatorButton(_ sender: UIButton) {
+        delegate?.keyPressed(btn: sender)
+        print(sender.titleLabel?.text!)
+    }
 }
 
