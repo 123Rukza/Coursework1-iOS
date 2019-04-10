@@ -9,7 +9,7 @@
 import UIKit
 
 class TemperatureViewController: ParentUIViewController {
-
+    
     @IBOutlet weak var txtCelcius: UITextField!
     @IBOutlet weak var txtFarenheit: UITextField!
     @IBOutlet weak var txtKelvin: UITextField!
@@ -49,14 +49,23 @@ class TemperatureViewController: ParentUIViewController {
             }
         }
     }
-
+    
     func updateUI(selectedText: UITextField, unit:String, value: String) {
         let unitKG = UnitConversions.standardizeToCelcius(unit: unit, value: Double(selectedText.text!)!)
         setValuesToUI(unit: unit, kgValue: unitKG)
     }
     
     func setValuesToUI(unit: String, kgValue: Double) {
-    
+        if (unit == "c") {
+            txtFarenheit.text = String(format:"%.2f",UnitConversions.toFarenheit(value: kgValue))
+            txtKelvin.text = String(format:"%.2f",UnitConversions.toKelvin(value: kgValue))
+        } else if (unit == "k") {
+            txtCelcius.text = String(format:"%.2f", kgValue)
+            txtFarenheit.text = String(format:"%.2f",UnitConversions.toFarenheit(value: kgValue))
+        } else {
+            txtCelcius.text = String(format:"%.2f", kgValue)
+            txtKelvin.text = String(format:"%.2f",UnitConversions.toKelvin(value: kgValue))
+        }
     }
     
     func clearUI() {
