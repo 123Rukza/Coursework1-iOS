@@ -14,6 +14,7 @@
 		0ADF92A9225DFB3E00AFC5F2 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF92A8225DFB3E00AFC5F2 /* KeyboardViewController.swift */; };
 		0ADF92AB225E00DB00AFC5F2 /* ParentUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF92AA225E00DB00AFC5F2 /* ParentUIViewController.swift */; };
 		0ADF92AE225E6AC200AFC5F2 /* UnitConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF92AD225E6AC200AFC5F2 /* UnitConversions.swift */; };
+		0ADF92B0225E7A0B00AFC5F2 /* UnitConversionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF92AF225E7A0B00AFC5F2 /* UnitConversionStorage.swift */; };
 		0AF9F1AA224E82D6003428AA /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF9F1A9224E82D6003428AA /* WeightViewController.swift */; };
 		0AF9F1AC224E82FC003428AA /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF9F1AB224E82FC003428AA /* TemperatureViewController.swift */; };
 		0AF9F1AE224E830E003428AA /* LengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF9F1AD224E830E003428AA /* LengthViewController.swift */; };
@@ -31,6 +32,7 @@
 		0ADF92A8225DFB3E00AFC5F2 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		0ADF92AA225E00DB00AFC5F2 /* ParentUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentUIViewController.swift; sourceTree = "<group>"; };
 		0ADF92AD225E6AC200AFC5F2 /* UnitConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConversions.swift; sourceTree = "<group>"; };
+		0ADF92AF225E7A0B00AFC5F2 /* UnitConversionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConversionStorage.swift; sourceTree = "<group>"; };
 		0AF9F19F224E8276003428AA /* convert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = convert.png; sourceTree = "<group>"; };
 		0AF9F1A0224E8276003428AA /* cubeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cubeIcon.png; sourceTree = "<group>"; };
 		0AF9F1A1224E8276003428AA /* distance icon 50p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distance icon 50p.png"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				0ADF92AD225E6AC200AFC5F2 /* UnitConversions.swift */,
+				0ADF92AF225E7A0B00AFC5F2 /* UnitConversionStorage.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AF9F1B2224E833C003428AA /* VolumeViewController.swift in Sources */,
+				0ADF92B0225E7A0B00AFC5F2 /* UnitConversionStorage.swift in Sources */,
 				0A3C73FF224D5E170052F8E7 /* AppDelegate.swift in Sources */,
 				0ADF92A9225DFB3E00AFC5F2 /* KeyboardViewController.swift in Sources */,
 				0AF9F1B0224E831C003428AA /* SpeedViewController.swift in Sources */,
