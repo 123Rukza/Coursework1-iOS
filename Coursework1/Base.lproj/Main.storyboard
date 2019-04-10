@@ -379,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xN5-ol-iLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1251" y="1632"/>
+            <point key="canvasLocation" x="910" y="1657"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -734,6 +734,6 @@
         <image name="weight" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lDV-aQ-4Fi"/>
+        <segue reference="TOP-Je-9rR"/>
     </inferredMetricsTieBreakers>
 </document>

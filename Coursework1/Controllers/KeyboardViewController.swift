@@ -14,6 +14,7 @@ class KeyboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnNegate.isHidden = true
     }
     
     

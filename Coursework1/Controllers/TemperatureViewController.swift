@@ -16,6 +16,9 @@ class TemperatureViewController: ParentUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        clearUI()
+        let keyboard = self.children.first as? KeyboardViewController
+        keyboard?.btnNegate.isHidden = false
     }
     
     override func keyboardKeyPressed(value: String) {
@@ -34,11 +37,26 @@ class TemperatureViewController: ParentUIViewController {
             unit = "f"
         }
         
-        if (value != "DEL") {
+        if (value != "DEL" && value != "+/-") {
             if(unit != "none"){
-                selectedText?.text = ((selectedText?.text!)!) + value
-                updateUI(selectedText: selectedText!, unit: unit, value: value)
+                if(!(value == "." && (selectedText?.text?.contains("."))!))
+                {
+                    selectedText?.text = ((selectedText?.text!)!) + value
+                    
+                    if(selectedText?.text?.first == "0") {
+                        selectedText?.text = String((selectedText?.text?.dropFirst())!)
+                    }
+                    
+                    updateUI(selectedText: selectedText!, unit: unit, value: value)
+                }
             }
+        } else if (value == "+/-" && (selectedText?.text?.count)! > 0) {
+            if ((selectedText?.text?.contains("-"))!) {
+                selectedText?.text = String((selectedText?.text?.dropFirst())!)
+            } else {
+                selectedText?.text = "-" + (selectedText?.text)!
+            }
+            updateUI(selectedText: selectedText!, unit: unit, value: value)
         } else {
             selectedText?.text = String((selectedText?.text?.dropLast())!)
             
@@ -69,8 +87,8 @@ class TemperatureViewController: ParentUIViewController {
     }
     
     func clearUI() {
-        txtFarenheit.text = ""
-        txtKelvin.text = ""
-        txtCelcius.text = ""
+        txtFarenheit.text = "0"
+        txtKelvin.text = "0"
+        txtCelcius.text = "0"
     }
 }

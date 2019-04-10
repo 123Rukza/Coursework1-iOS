@@ -18,7 +18,7 @@ class WeightViewController: ParentUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        clearUI()
     }
     
     override func keyboardKeyPressed(value: String) {
@@ -44,8 +44,16 @@ class WeightViewController: ParentUIViewController {
         
         if (value != "DEL") {
             if(unit != "none"){
-                selectedText?.text = ((selectedText?.text!)!) + value
-                updateUI(selectedText: selectedText!, unit: unit, value: value)
+                if(!(value == "." && (selectedText?.text?.contains("."))!))
+                {
+                    selectedText?.text = ((selectedText?.text!)!) + value
+                    
+                    if(selectedText?.text?.first == "0") {
+                        selectedText?.text = String((selectedText?.text?.dropFirst())!)
+                    }
+                    
+                    updateUI(selectedText: selectedText!, unit: unit, value: value)
+                }
             }
         } else {
             selectedText?.text = String((selectedText?.text?.dropLast())!)
@@ -94,11 +102,11 @@ class WeightViewController: ParentUIViewController {
     }
     
     func clearUI() {
-        txtKilograms.text = ""
-        txtGrams.text = ""
-        txtOunces.text = ""
-        txtPounds.text = ""
-        txtStone.text = ""
+        txtKilograms.text = "0"
+        txtGrams.text = "0"
+        txtOunces.text = "0"
+        txtPounds.text = "0"
+        txtStone.text = "0"
     }
     
 }
