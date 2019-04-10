@@ -15,10 +15,10 @@ class TemperatureViewController: ParentUIViewController {
 
     }
     
-    override func updateUIFromKeyboard(content: String) {
-        txtKelvin.text = content
-        txtCelcius.text = content
-        txtFarenheit.text = content
+    override func keyboardKeyPressed(value: String) {
+        txtKelvin.text = value
+        txtCelcius.text = value
+        txtFarenheit.text = value
     }
 
     @IBOutlet weak var txtCelcius: UITextField!

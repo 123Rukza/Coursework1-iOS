@@ -20,7 +20,7 @@ class KeyboardViewController: UIViewController {
     
     @IBAction func keyboardButtonPressed(_ sender: UIButton) {
         let vc = self.parent as! ParentUIViewController
-        vc.updateUIFromKeyboard(content: (sender.titleLabel?.text!)!)
+        vc.keyboardKeyPressed(value: (sender.titleLabel?.text!)!)
     }
 
     

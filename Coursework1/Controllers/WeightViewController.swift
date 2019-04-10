@@ -19,8 +19,8 @@ class WeightViewController: ParentUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    override func updateUIFromKeyboard(content: String) {
+    
+    override func keyboardKeyPressed(value: String) {
         var selectedText: UITextField? = nil
         var unit: String = "none"
         
@@ -41,11 +41,25 @@ class WeightViewController: ParentUIViewController {
             unit = "s"
         }
         
-        if(unit != "none"){
-            selectedText?.text = (selectedText?.text!)! + content
-            let unitKG = UnitConversions.toKilogram(unit: unit, value: Double(selectedText!.text!)!)
-            setValuesToUI(unit: unit, kgValue: unitKG)
+        if (value != "DEL") {
+            if(unit != "none"){
+                selectedText?.text = ((selectedText?.text!)!) + value
+                updateUI(selectedText: selectedText!, unit: unit, value: value)
+            }
+        } else {
+            selectedText?.text = String((selectedText?.text?.dropLast())!)
+            
+            if((selectedText?.text?.count)! > 0) {
+                updateUI(selectedText: selectedText!, unit: unit, value: value)
+            } else {
+                clearUI()
+            }
         }
+    }
+    
+    func updateUI(selectedText: UITextField, unit:String, value: String) {
+        let unitKG = UnitConversions.toKilogram(unit: unit, value: Double(selectedText.text!)!)
+        setValuesToUI(unit: unit, kgValue: unitKG)
     }
     
     func setValuesToUI(unit: String, kgValue: Double) {
@@ -77,5 +91,13 @@ class WeightViewController: ParentUIViewController {
             txtKilograms.text = String(format:"%.2f", kgValue)
         }
     }
-
+    
+    func clearUI() {
+        txtKilograms.text = ""
+        txtGrams.text = ""
+        txtOunces.text = ""
+        txtPounds.text = ""
+        txtStone.text = ""
+    }
+    
 }

@@ -16,7 +16,7 @@ class ParentUIViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func updateUIFromKeyboard(content: String) {
+    func keyboardKeyPressed(value: String) {
         // abstract
     }
 
