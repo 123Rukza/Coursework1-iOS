@@ -20,6 +20,7 @@ class SpeedViewController: ParentUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         clearUI()
+        disableSoftkeyboard()
     }
     
     // Override parent key pressed event
@@ -76,21 +77,21 @@ class SpeedViewController: ParentUIViewController {
     func setValuesToUI(unit: String, kgValue: Double) {
         
         if (unit == "ms") {
-            txtKMPH.text = String(format:"%.2f", UnitConversions.toKMPH(value: kgValue))
-            txtMPH.text = String(format:"%.2f", UnitConversions.toMPH(value: kgValue))
-            txtNMPH.text = String(format:"%.2f", UnitConversions.toNMPH(value: kgValue))
+            txtKMPH.text = String(format:"%.4f", UnitConversions.toKMPH(value: kgValue))
+            txtMPH.text = String(format:"%.4f", UnitConversions.toMPH(value: kgValue))
+            txtNMPH.text = String(format:"%.4f", UnitConversions.toNMPH(value: kgValue))
         } else if (unit == "kmph") {
-            txtMs.text = String(format:"%.2f", kgValue)
-            txtMPH.text = String(format:"%.2f", UnitConversions.toMPH(value: kgValue))
-            txtNMPH.text = String(format:"%.2f", UnitConversions.toNMPH(value: kgValue))
+            txtMs.text = String(format:"%.4f", kgValue)
+            txtMPH.text = String(format:"%.4f", UnitConversions.toMPH(value: kgValue))
+            txtNMPH.text = String(format:"%.4f", UnitConversions.toNMPH(value: kgValue))
         } else if (unit == "mph") {
-            txtKMPH.text = String(format:"%.2f", UnitConversions.toKMPH(value: kgValue))
-            txtMs.text = String(format:"%.2f", kgValue)
-            txtNMPH.text = String(format:"%.2f", UnitConversions.toNMPH(value: kgValue))
+            txtKMPH.text = String(format:"%.4f", UnitConversions.toKMPH(value: kgValue))
+            txtMs.text = String(format:"%.4f", kgValue)
+            txtNMPH.text = String(format:"%.4f", UnitConversions.toNMPH(value: kgValue))
         } else {
-            txtKMPH.text = String(format:"%.2f", UnitConversions.toKMPH(value: kgValue))
-            txtMPH.text = String(format:"%.2f", UnitConversions.toMPH(value: kgValue))
-            txtMs.text = String(format:"%.2f", kgValue)
+            txtKMPH.text = String(format:"%.4f", UnitConversions.toKMPH(value: kgValue))
+            txtMPH.text = String(format:"%.4f", UnitConversions.toMPH(value: kgValue))
+            txtMs.text = String(format:"%.4f", kgValue)
         }
     }
     

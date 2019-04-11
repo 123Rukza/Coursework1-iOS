@@ -33,15 +33,6 @@
 		0ADF92AA225E00DB00AFC5F2 /* ParentUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentUIViewController.swift; sourceTree = "<group>"; };
 		0ADF92AD225E6AC200AFC5F2 /* UnitConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConversions.swift; sourceTree = "<group>"; };
 		0ADF92AF225E7A0B00AFC5F2 /* UnitConversionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConversionStorage.swift; sourceTree = "<group>"; };
-		0AF9F19F224E8276003428AA /* convert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = convert.png; sourceTree = "<group>"; };
-		0AF9F1A0224E8276003428AA /* cubeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cubeIcon.png; sourceTree = "<group>"; };
-		0AF9F1A1224E8276003428AA /* distance icon 50p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distance icon 50p.png"; sourceTree = "<group>"; };
-		0AF9F1A2224E8276003428AA /* history-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history-512.png"; sourceTree = "<group>"; };
-		0AF9F1A3224E8276003428AA /* Kg_weight 50p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kg_weight 50p.png"; sourceTree = "<group>"; };
-		0AF9F1A4224E8276003428AA /* liquidVol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liquidVol.png; sourceTree = "<group>"; };
-		0AF9F1A5224E8276003428AA /* saveIocn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveIocn.png; sourceTree = "<group>"; };
-		0AF9F1A6224E8276003428AA /* speedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedIcon.png; sourceTree = "<group>"; };
-		0AF9F1A7224E8276003428AA /* temperature 50p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temperature 50p.png"; sourceTree = "<group>"; };
 		0AF9F1A9224E82D6003428AA /* WeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
 		0AF9F1AB224E82FC003428AA /* TemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
 		0AF9F1AD224E830E003428AA /* LengthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +72,6 @@
 			children = (
 				0ADF92AC225E6A6D00AFC5F2 /* Utilities */,
 				0AF9F1A8224E82AE003428AA /* Controllers */,
-				0AF9F19E224E8276003428AA /* Icons */,
 				0A3C73FE224D5E170052F8E7 /* AppDelegate.swift */,
 				0A3C7404224D5E170052F8E7 /* Main.storyboard */,
 				0A3C7407224D5E190052F8E7 /* Assets.xcassets */,
@@ -98,22 +88,6 @@
 				0ADF92AF225E7A0B00AFC5F2 /* UnitConversionStorage.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		0AF9F19E224E8276003428AA /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				0AF9F19F224E8276003428AA /* convert.png */,
-				0AF9F1A0224E8276003428AA /* cubeIcon.png */,
-				0AF9F1A1224E8276003428AA /* distance icon 50p.png */,
-				0AF9F1A2224E8276003428AA /* history-512.png */,
-				0AF9F1A3224E8276003428AA /* Kg_weight 50p.png */,
-				0AF9F1A4224E8276003428AA /* liquidVol.png */,
-				0AF9F1A5224E8276003428AA /* saveIocn.png */,
-				0AF9F1A6224E8276003428AA /* speedIcon.png */,
-				0AF9F1A7224E8276003428AA /* temperature 50p.png */,
-			);
-			path = Icons;
 			sourceTree = "<group>";
 		};
 		0AF9F1A8224E82AE003428AA /* Controllers */ = {

@@ -81,30 +81,30 @@ class WeightViewController: ParentUIViewController {
         
         // Update all text fields except for the currently selected
         if (unit == "kg") {
-            txtGrams.text = String(format:"%.2f", UnitConversions.toGram(value: kgValue))
-            txtOunces.text = String(format:"%.2f", UnitConversions.toOunce(value: kgValue))
-            txtPounds.text = String(format:"%.2f", UnitConversions.toPound(value: kgValue))
-            txtStone.text = String(format:"%.2f", UnitConversions.toStone(value: kgValue))
+            txtGrams.text = String(format:"%.4f", UnitConversions.toGram(value: kgValue))
+            txtOunces.text = String(format:"%.4f", UnitConversions.toOunce(value: kgValue))
+            txtPounds.text = String(format:"%.4f", UnitConversions.toPound(value: kgValue))
+            txtStone.text = String(format:"%.4f", UnitConversions.toStone(value: kgValue))
         } else if (unit == "g") {
-            txtKilograms.text = String(format:"%.2f", kgValue)
-            txtOunces.text = String(format:"%.2f", UnitConversions.toOunce(value: kgValue))
-            txtPounds.text = String(format:"%.2f", UnitConversions.toPound(value: kgValue))
-            txtStone.text = String(format:"%.2f", UnitConversions.toStone(value: kgValue))
+            txtKilograms.text = String(format:"%.4f", kgValue)
+            txtOunces.text = String(format:"%.4f", UnitConversions.toOunce(value: kgValue))
+            txtPounds.text = String(format:"%.4f", UnitConversions.toPound(value: kgValue))
+            txtStone.text = String(format:"%.4f", UnitConversions.toStone(value: kgValue))
         } else if (unit == "o") {
-            txtGrams.text = String(format:"%.2f", UnitConversions.toGram(value: kgValue))
-            txtKilograms.text = String(format:"%.2f", kgValue)
-            txtPounds.text = String(format:"%.2f", UnitConversions.toPound(value: kgValue))
-            txtStone.text = String(format:"%.2f", UnitConversions.toStone(value: kgValue))
+            txtGrams.text = String(format:"%.4f", UnitConversions.toGram(value: kgValue))
+            txtKilograms.text = String(format:"%.4f", kgValue)
+            txtPounds.text = String(format:"%.4f", UnitConversions.toPound(value: kgValue))
+            txtStone.text = String(format:"%.4f", UnitConversions.toStone(value: kgValue))
         } else if (unit == "p") {
-            txtGrams.text = String(format:"%.2f", UnitConversions.toGram(value: kgValue))
-            txtOunces.text = String(format:"%.2f", UnitConversions.toOunce(value: kgValue))
-            txtKilograms.text = String(format:"%.2f", kgValue)
-            txtStone.text = String(format:"%.2f", UnitConversions.toStone(value: kgValue))
+            txtGrams.text = String(format:"%.4f", UnitConversions.toGram(value: kgValue))
+            txtOunces.text = String(format:"%.4f", UnitConversions.toOunce(value: kgValue))
+            txtKilograms.text = String(format:"%.4f", kgValue)
+            txtStone.text = String(format:"%.4f", UnitConversions.toStone(value: kgValue))
         } else {
-            txtGrams.text = String(format:"%.2f", UnitConversions.toGram(value: kgValue))
-            txtOunces.text = String(format:"%.2f", UnitConversions.toOunce(value: kgValue))
-            txtPounds.text = String(format:"%.2f", UnitConversions.toPound(value: kgValue))
-            txtKilograms.text = String(format:"%.2f", kgValue)
+            txtGrams.text = String(format:"%.4f", UnitConversions.toGram(value: kgValue))
+            txtOunces.text = String(format:"%.4f", UnitConversions.toOunce(value: kgValue))
+            txtPounds.text = String(format:"%.4f", UnitConversions.toPound(value: kgValue))
+            txtKilograms.text = String(format:"%.4f", kgValue)
         }
     }
     

@@ -20,6 +20,7 @@ class VolumeViewController: ParentUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        disableSoftKeyboard()
         clearUI()
     }
     
@@ -80,30 +81,30 @@ class VolumeViewController: ParentUIViewController {
     func setValuesToUI(unit: String, kgValue: Double) {
         
         if (unit == "g") {
-            txtLitre.text = String(format:"%.2f", UnitConversions.toLitre(value: kgValue))
-            txtPint.text = String(format:"%.2f", UnitConversions.toPint(value: kgValue))
-            txtFluidOunce.text = String(format:"%.2f", UnitConversions.toFluidOunce(value: kgValue))
-            txtMillilitre.text = String(format:"%.2f", UnitConversions.toMilliliter(value: kgValue))
+            txtLitre.text = String(format:"%.4f", UnitConversions.toLitre(value: kgValue))
+            txtPint.text = String(format:"%.4f", UnitConversions.toPint(value: kgValue))
+            txtFluidOunce.text = String(format:"%.4f", UnitConversions.toFluidOunce(value: kgValue))
+            txtMillilitre.text = String(format:"%.4f", UnitConversions.toMilliliter(value: kgValue))
         } else if (unit == "l") {
-            txtGallon.text = String(format:"%.2f", kgValue)
-            txtPint.text = String(format:"%.2f", UnitConversions.toPint(value: kgValue))
-            txtFluidOunce.text = String(format:"%.2f", UnitConversions.toFluidOunce(value: kgValue))
-            txtMillilitre.text = String(format:"%.2f", UnitConversions.toMilliliter(value: kgValue))
+            txtGallon.text = String(format:"%.4f", kgValue)
+            txtPint.text = String(format:"%.4f", UnitConversions.toPint(value: kgValue))
+            txtFluidOunce.text = String(format:"%.4f", UnitConversions.toFluidOunce(value: kgValue))
+            txtMillilitre.text = String(format:"%.4f", UnitConversions.toMilliliter(value: kgValue))
         } else if (unit == "p") {
-            txtLitre.text = String(format:"%.2f", UnitConversions.toLitre(value: kgValue))
-            txtGallon.text = String(format:"%.2f", kgValue)
-            txtFluidOunce.text = String(format:"%.2f", UnitConversions.toFluidOunce(value: kgValue))
-            txtMillilitre.text = String(format:"%.2f", UnitConversions.toMilliliter(value: kgValue))
+            txtLitre.text = String(format:"%.4f", UnitConversions.toLitre(value: kgValue))
+            txtGallon.text = String(format:"%.4f", kgValue)
+            txtFluidOunce.text = String(format:"%.4f", UnitConversions.toFluidOunce(value: kgValue))
+            txtMillilitre.text = String(format:"%.4f", UnitConversions.toMilliliter(value: kgValue))
         } else if (unit == "f") {
-            txtLitre.text = String(format:"%.2f", UnitConversions.toLitre(value: kgValue))
-            txtPint.text = String(format:"%.2f", UnitConversions.toPint(value: kgValue))
-            txtGallon.text = String(format:"%.2f", kgValue)
-            txtMillilitre.text = String(format:"%.2f", UnitConversions.toMilliliter(value: kgValue))
+            txtLitre.text = String(format:"%.4f", UnitConversions.toLitre(value: kgValue))
+            txtPint.text = String(format:"%.4f", UnitConversions.toPint(value: kgValue))
+            txtGallon.text = String(format:"%.4f", kgValue)
+            txtMillilitre.text = String(format:"%.4f", UnitConversions.toMilliliter(value: kgValue))
         } else {
-            txtLitre.text = String(format:"%.2f", UnitConversions.toLitre(value: kgValue))
-            txtPint.text = String(format:"%.2f", UnitConversions.toPint(value: kgValue))
-            txtFluidOunce.text = String(format:"%.2f", UnitConversions.toFluidOunce(value: kgValue))
-            txtGallon.text = String(format:"%.2f", kgValue)
+            txtLitre.text = String(format:"%.4f", UnitConversions.toLitre(value: kgValue))
+            txtPint.text = String(format:"%.4f", UnitConversions.toPint(value: kgValue))
+            txtFluidOunce.text = String(format:"%.4f", UnitConversions.toFluidOunce(value: kgValue))
+            txtGallon.text = String(format:"%.4f", kgValue)
         }
     }
     
@@ -117,7 +118,7 @@ class VolumeViewController: ParentUIViewController {
     }
     
     // Disable software keyboard
-    func diisableSoftKeyboard() {
+    func disableSoftKeyboard() {
         txtGallon.inputView = UIView()
         txtLitre.inputView = UIView()
         txtPint.inputView = UIView()

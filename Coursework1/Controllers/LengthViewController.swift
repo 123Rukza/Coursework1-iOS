@@ -22,6 +22,7 @@ class LengthViewController: ParentUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         clearUI()
+        disableSoftKeyboard()
     }
     
     // Override parent key pressed
@@ -82,41 +83,41 @@ class LengthViewController: ParentUIViewController {
     func setValuesToUI(unit: String, kgValue: Double) {
         
         if (unit == "me") {
-            txtMile.text = String(format:"%.2f", UnitConversions.toMiles(value: kgValue))
-            txtCentimeter.text = String(format:"%.2f", UnitConversions.toCentimeters(value: kgValue))
-            txtMillimeter.text = String(format:"%.2f", UnitConversions.toMillimeters(value: kgValue))
-            txtYard.text = String(format:"%.2f", UnitConversions.toYards(value: kgValue))
-            txtInch.text = String(format:"%.2f", UnitConversions.toInches(value: kgValue))
+            txtMile.text = String(format:"%.4f", UnitConversions.toMiles(value: kgValue))
+            txtCentimeter.text = String(format:"%.4f", UnitConversions.toCentimeters(value: kgValue))
+            txtMillimeter.text = String(format:"%.4f", UnitConversions.toMillimeters(value: kgValue))
+            txtYard.text = String(format:"%.4f", UnitConversions.toYards(value: kgValue))
+            txtInch.text = String(format:"%.4f", UnitConversions.toInches(value: kgValue))
         } else if (unit == "mi") {
-            txtMetre.text = String(format:"%.2f", kgValue)
-            txtCentimeter.text = String(format:"%.2f", UnitConversions.toCentimeters(value: kgValue))
-            txtMillimeter.text = String(format:"%.2f", UnitConversions.toMillimeters(value: kgValue))
-            txtYard.text = String(format:"%.2f", UnitConversions.toYards(value: kgValue))
-            txtInch.text = String(format:"%.2f", UnitConversions.toInches(value: kgValue))
+            txtMetre.text = String(format:"%.4f", kgValue)
+            txtCentimeter.text = String(format:"%.4f", UnitConversions.toCentimeters(value: kgValue))
+            txtMillimeter.text = String(format:"%.4f", UnitConversions.toMillimeters(value: kgValue))
+            txtYard.text = String(format:"%.4f", UnitConversions.toYards(value: kgValue))
+            txtInch.text = String(format:"%.4f", UnitConversions.toInches(value: kgValue))
         } else if (unit == "cm") {
-            txtMile.text = String(format:"%.2f", UnitConversions.toMiles(value: kgValue))
-            txtMetre.text = String(format:"%.2f", kgValue)
-            txtMillimeter.text = String(format:"%.2f", UnitConversions.toMillimeters(value: kgValue))
-            txtYard.text = String(format:"%.2f", UnitConversions.toYards(value: kgValue))
-            txtInch.text = String(format:"%.2f", UnitConversions.toInches(value: kgValue))
+            txtMile.text = String(format:"%.4f", UnitConversions.toMiles(value: kgValue))
+            txtMetre.text = String(format:"%.4f", kgValue)
+            txtMillimeter.text = String(format:"%.4f", UnitConversions.toMillimeters(value: kgValue))
+            txtYard.text = String(format:"%.4f", UnitConversions.toYards(value: kgValue))
+            txtInch.text = String(format:"%.4f", UnitConversions.toInches(value: kgValue))
         } else if (unit == "mm") {
-            txtMile.text = String(format:"%.2f", UnitConversions.toMiles(value: kgValue))
-            txtCentimeter.text = String(format:"%.2f", UnitConversions.toCentimeters(value: kgValue))
-            txtMetre.text = String(format:"%.2f", kgValue)
-            txtYard.text = String(format:"%.2f", UnitConversions.toYards(value: kgValue))
-            txtInch.text = String(format:"%.2f", UnitConversions.toInches(value: kgValue))
+            txtMile.text = String(format:"%.4f", UnitConversions.toMiles(value: kgValue))
+            txtCentimeter.text = String(format:"%.4f", UnitConversions.toCentimeters(value: kgValue))
+            txtMetre.text = String(format:"%.4f", kgValue)
+            txtYard.text = String(format:"%.4f", UnitConversions.toYards(value: kgValue))
+            txtInch.text = String(format:"%.4f", UnitConversions.toInches(value: kgValue))
         } else if (unit == "y") {
-            txtMile.text = String(format:"%.2f", UnitConversions.toMiles(value: kgValue))
-            txtCentimeter.text = String(format:"%.2f", UnitConversions.toCentimeters(value: kgValue))
-            txtMillimeter.text = String(format:"%.2f", UnitConversions.toMillimeters(value: kgValue))
-            txtMetre.text = String(format:"%.2f", kgValue)
-            txtInch.text = String(format:"%.2f", UnitConversions.toInches(value: kgValue))
+            txtMile.text = String(format:"%.4f", UnitConversions.toMiles(value: kgValue))
+            txtCentimeter.text = String(format:"%.4f", UnitConversions.toCentimeters(value: kgValue))
+            txtMillimeter.text = String(format:"%.4f", UnitConversions.toMillimeters(value: kgValue))
+            txtMetre.text = String(format:"%.4f", kgValue)
+            txtInch.text = String(format:"%.4f", UnitConversions.toInches(value: kgValue))
         } else {
-            txtMile.text = String(format:"%.2f", UnitConversions.toMiles(value: kgValue))
-            txtCentimeter.text = String(format:"%.2f", UnitConversions.toCentimeters(value: kgValue))
-            txtMillimeter.text = String(format:"%.2f", UnitConversions.toMillimeters(value: kgValue))
-            txtYard.text = String(format:"%.2f", UnitConversions.toYards(value: kgValue))
-            txtMetre.text = String(format:"%.2f", kgValue)
+            txtMile.text = String(format:"%.4f", UnitConversions.toMiles(value: kgValue))
+            txtCentimeter.text = String(format:"%.4f", UnitConversions.toCentimeters(value: kgValue))
+            txtMillimeter.text = String(format:"%.4f", UnitConversions.toMillimeters(value: kgValue))
+            txtYard.text = String(format:"%.4f", UnitConversions.toYards(value: kgValue))
+            txtMetre.text = String(format:"%.4f", kgValue)
         }
     }
     

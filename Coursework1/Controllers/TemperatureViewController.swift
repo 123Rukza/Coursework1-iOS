@@ -19,6 +19,7 @@ class TemperatureViewController: ParentUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         clearUI()
+        disableSoftKeyboard()
         
         // enable negation key for temperature
         let keyboard = self.children.first as? KeyboardViewController
@@ -83,14 +84,14 @@ class TemperatureViewController: ParentUIViewController {
     // Set values to the text fields
     func setValuesToUI(unit: String, kgValue: Double) {
         if (unit == "c") {
-            txtFarenheit.text = String(format:"%.2f",UnitConversions.toFarenheit(value: kgValue))
-            txtKelvin.text = String(format:"%.2f",UnitConversions.toKelvin(value: kgValue))
+            txtFarenheit.text = String(format:"%.4f",UnitConversions.toFarenheit(value: kgValue))
+            txtKelvin.text = String(format:"%.4f",UnitConversions.toKelvin(value: kgValue))
         } else if (unit == "k") {
-            txtCelcius.text = String(format:"%.2f", kgValue)
-            txtFarenheit.text = String(format:"%.2f",UnitConversions.toFarenheit(value: kgValue))
+            txtCelcius.text = String(format:"%.4f", kgValue)
+            txtFarenheit.text = String(format:"%.4f",UnitConversions.toFarenheit(value: kgValue))
         } else {
-            txtCelcius.text = String(format:"%.2f", kgValue)
-            txtKelvin.text = String(format:"%.2f",UnitConversions.toKelvin(value: kgValue))
+            txtCelcius.text = String(format:"%.4f", kgValue)
+            txtKelvin.text = String(format:"%.4f",UnitConversions.toKelvin(value: kgValue))
         }
     }
     
