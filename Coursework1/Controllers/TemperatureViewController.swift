@@ -32,7 +32,7 @@ class TemperatureViewController: ParentUIViewController {
         } else if (txtKelvin.isFirstResponder) {
             selectedText = txtKelvin
             unit = "k"
-        } else {
+        } else if (txtFarenheit.isFirstResponder){
             selectedText = txtFarenheit
             unit = "f"
         }

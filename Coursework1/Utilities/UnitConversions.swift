@@ -121,9 +121,9 @@ class UnitConversions: NSObject {
     static func standardizeToMs(unit:String, value:Double)->Double{
         if (unit == "ms") {
             return Measurement(value: Double(value), unit: UnitSpeed.metersPerSecond).converted(to: UnitSpeed.metersPerSecond).value
-        } else if (unit == "ks") {
+        } else if (unit == "kmph") {
             return Measurement(value: Double(value), unit: UnitSpeed.kilometersPerHour).converted(to: UnitSpeed.metersPerSecond).value
-        } else if (unit == "mis") {
+        } else if (unit == "mph") {
             return Measurement(value: Double(value), unit: UnitSpeed.milesPerHour).converted(to: UnitSpeed.metersPerSecond).value
         } else {
             return Measurement(value: Double(value), unit: UnitSpeed.knots).converted(to: UnitSpeed.metersPerSecond).value
@@ -137,7 +137,7 @@ class UnitConversions: NSObject {
     
     // Metres per second to miles per hour
     static func toMPH(value:Double)->Double {
-        return Measurement(value: Double(value), unit: UnitSpeed.metersPerSecond).converted(to: UnitSpeed.metersPerSecond).value
+        return Measurement(value: Double(value), unit: UnitSpeed.metersPerSecond).converted(to: UnitSpeed.milesPerHour).value
     }
     
     // Metres per second to nautical miles per hour
@@ -148,7 +148,7 @@ class UnitConversions: NSObject {
     
     // MARK: - VOLUME CONVERSIONS
     // Standardize all volumes to gallons
-    static func standardizeToLitre(unit:String, value:Double)->Double {
+    static func standardizeToGallon(unit:String, value:Double)->Double {
         if (unit == "g") {
             return Measurement(value: Double(value), unit: UnitVolume.gallons).converted(to: UnitVolume.gallons).value
         } else if (unit == "l") {
@@ -164,21 +164,21 @@ class UnitConversions: NSObject {
     
     // Gallons to litres
     static func toLitre(value:Double)->Double {
-        return Measurement(value: Double(value), unit: UnitVolume.milliliters).converted(to: UnitVolume.liters).value
+        return Measurement(value: Double(value), unit: UnitVolume.gallons).converted(to: UnitVolume.liters).value
     }
     
     // Gallons to pints
     static func toPint(value:Double)->Double {
-        return Measurement(value: Double(value), unit: UnitVolume.milliliters).converted(to: UnitVolume.pints).value
+        return Measurement(value: Double(value), unit: UnitVolume.gallons).converted(to: UnitVolume.pints).value
     }
     
     // Gallons to fluid ounce
     static func toFluidOunce(value:Double)->Double {
-        return Measurement(value: Double(value), unit: UnitVolume.milliliters).converted(to: UnitVolume.fluidOunces).value
+        return Measurement(value: Double(value), unit: UnitVolume.gallons).converted(to: UnitVolume.fluidOunces).value
     }
     
     // Gallons to milliletre
     static func toMilliliter(value:Double)->Double {
-        return Measurement(value: Double(value), unit: UnitVolume.milliliters).converted(to: UnitVolume.milliliters).value
+        return Measurement(value: Double(value), unit: UnitVolume.gallons).converted(to: UnitVolume.milliliters).value
     }
 }
