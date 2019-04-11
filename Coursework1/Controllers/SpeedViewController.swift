@@ -8,8 +8,10 @@
 
 import UIKit
 
+// Speed view controller
 class SpeedViewController: ParentUIViewController {
 
+    // Text field outlets
     @IBOutlet weak var txtMs: UITextField!
     @IBOutlet weak var txtKMPH: UITextField!
     @IBOutlet weak var txtMPH: UITextField!
@@ -20,6 +22,7 @@ class SpeedViewController: ParentUIViewController {
         clearUI()
     }
     
+    // Override parent key pressed event
     override func keyboardKeyPressed(value: String) {
         var selectedText: UITextField? = nil
         var unit: String = "none"
@@ -38,6 +41,7 @@ class SpeedViewController: ParentUIViewController {
             unit = "nmph"
         }
         
+        // Press if delete key is pressed
         if (value != "DEL") {
             if(unit != "none"){
                 if(!(value == "." && (selectedText?.text?.contains("."))!))
@@ -62,11 +66,13 @@ class SpeedViewController: ParentUIViewController {
         }
     }
     
+    // Generalised UI update method
     func updateUI(selectedText: UITextField, unit:String, value: String) {
         let unitKG = UnitConversions.standardizeToMs(unit: unit, value: Double(selectedText.text!)!)
         setValuesToUI(unit: unit, kgValue: unitKG)
     }
     
+    // Update UI text field values
     func setValuesToUI(unit: String, kgValue: Double) {
         
         if (unit == "ms") {
@@ -88,6 +94,7 @@ class SpeedViewController: ParentUIViewController {
         }
     }
     
+    // Clean UI
     func clearUI() {
         txtMs.text = "0"
         txtKMPH.text = "0"
@@ -95,6 +102,7 @@ class SpeedViewController: ParentUIViewController {
         txtNMPH.text = "0"
     }
 
+    // Disable soft keyboard
     func disableSoftkeyboard() {
         txtMs.inputView = UIView()
         txtKMPH.inputView = UIView()

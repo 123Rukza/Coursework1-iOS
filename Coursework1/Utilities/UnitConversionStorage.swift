@@ -8,11 +8,15 @@
 
 import UIKit
 
+// Class to manage data storage and retrieval for history
 class UnitConversionStorage: NSObject {
+    
+    // Saving data
     static func store (key:String, object:AnyObject) {
         UserDefaults.standard.set(object, forKey: key)
     }
     
+    // Retrieving data
     static func load(key:String)-> AnyObject {
         return UserDefaults.standard.object(forKey: key) as AnyObject
     }

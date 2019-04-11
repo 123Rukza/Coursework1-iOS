@@ -8,8 +8,10 @@
 
 import UIKit
 
+// Temperature view controller
 class TemperatureViewController: ParentUIViewController {
     
+    // Text field outlets
     @IBOutlet weak var txtCelcius: UITextField!
     @IBOutlet weak var txtFarenheit: UITextField!
     @IBOutlet weak var txtKelvin: UITextField!
@@ -17,15 +19,19 @@ class TemperatureViewController: ParentUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         clearUI()
+        
+        // enable negation key for temperature
         let keyboard = self.children.first as? KeyboardViewController
         keyboard?.btnNegate.isHidden = false
     }
     
+    // Override key pressed from keyboard
     override func keyboardKeyPressed(value: String) {
         
         var selectedText: UITextField? = nil
         var unit: String = "none"
         
+        // Get selected text field
         if(txtCelcius.isFirstResponder) {
             selectedText = txtCelcius
             unit = "c"
@@ -37,19 +43,19 @@ class TemperatureViewController: ParentUIViewController {
             unit = "f"
         }
         
+        // Checking for both delete and negation
         if (value != "DEL" && value != "+/-") {
-            if(unit != "none"){
-                if(!(value == "." && (selectedText?.text?.contains("."))!))
-                {
-                    selectedText?.text = ((selectedText?.text!)!) + value
-                    
-                    if(selectedText?.text?.first == "0") {
-                        selectedText?.text = String((selectedText?.text?.dropFirst())!)
-                    }
-                    
-                    updateUI(selectedText: selectedText!, unit: unit, value: value)
+            if(!(value == "." && (selectedText?.text?.contains("."))!))
+            {
+                selectedText?.text = ((selectedText?.text!)!) + value
+                
+                if(selectedText?.text?.first == "0") {
+                    selectedText?.text = String((selectedText?.text?.dropFirst())!)
                 }
+                
+                updateUI(selectedText: selectedText!, unit: unit, value: value)
             }
+        // Don't apply negation if amount of characters is = 0
         } else if (value == "+/-" && (selectedText?.text?.count)! > 0) {
             if ((selectedText?.text?.contains("-"))!) {
                 selectedText?.text = String((selectedText?.text?.dropFirst())!)
@@ -68,11 +74,13 @@ class TemperatureViewController: ParentUIViewController {
         }
     }
     
+    // Generalised UI update function
     func updateUI(selectedText: UITextField, unit:String, value: String) {
         let unitKG = UnitConversions.standardizeToCelcius(unit: unit, value: Double(selectedText.text!)!)
         setValuesToUI(unit: unit, kgValue: unitKG)
     }
     
+    // Set values to the text fields
     func setValuesToUI(unit: String, kgValue: Double) {
         if (unit == "c") {
             txtFarenheit.text = String(format:"%.2f",UnitConversions.toFarenheit(value: kgValue))
@@ -86,12 +94,14 @@ class TemperatureViewController: ParentUIViewController {
         }
     }
     
+    // Clean UI
     func clearUI() {
         txtFarenheit.text = "0"
         txtKelvin.text = "0"
         txtCelcius.text = "0"
     }
     
+    // Disable soft keyboard
     func disableSoftKeyboard() {
         txtFarenheit.inputView = UIView()
         txtKelvin.inputView = UIView()

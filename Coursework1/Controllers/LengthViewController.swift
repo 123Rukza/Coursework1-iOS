@@ -8,8 +8,10 @@
 
 import UIKit
 
+// Length view controller
 class LengthViewController: ParentUIViewController {
     
+    // Text field outlets
     @IBOutlet weak var txtMetre: UITextField!
     @IBOutlet weak var txtMile: UITextField!
     @IBOutlet weak var txtCentimeter: UITextField!
@@ -22,6 +24,7 @@ class LengthViewController: ParentUIViewController {
         clearUI()
     }
     
+    // Override parent key pressed
     override func keyboardKeyPressed(value: String) {
         var selectedText: UITextField? = nil
         var unit: String = "none"
@@ -46,18 +49,17 @@ class LengthViewController: ParentUIViewController {
             unit = "i"
         }
         
+        // Check if delete is pressed
         if (value != "DEL") {
-            if(unit != "none"){
-                if(!(value == "." && (selectedText?.text?.contains("."))!))
-                {
-                    selectedText?.text = ((selectedText?.text!)!) + value
-                    
-                    if(selectedText?.text?.first == "0") {
-                        selectedText?.text = String((selectedText?.text?.dropFirst())!)
-                    }
-                    
-                    updateUI(selectedText: selectedText!, unit: unit, value: value)
+            if(!(value == "." && (selectedText?.text?.contains("."))!))
+            {
+                selectedText?.text = ((selectedText?.text!)!) + value
+                
+                if(selectedText?.text?.first == "0") {
+                    selectedText?.text = String((selectedText?.text?.dropFirst())!)
                 }
+                
+                updateUI(selectedText: selectedText!, unit: unit, value: value)
             }
         } else {
             selectedText?.text = String((selectedText?.text?.dropLast())!)
@@ -70,11 +72,13 @@ class LengthViewController: ParentUIViewController {
         }
     }
     
+    // Generalised update method
     func updateUI(selectedText: UITextField, unit:String, value: String) {
         let unitKG = UnitConversions.standardizeToMetre(unit: unit, value: Double(selectedText.text!)!)
         setValuesToUI(unit: unit, kgValue: unitKG)
     }
     
+    // Update UI values
     func setValuesToUI(unit: String, kgValue: Double) {
         
         if (unit == "me") {
@@ -116,6 +120,7 @@ class LengthViewController: ParentUIViewController {
         }
     }
     
+    // Clean UI
     func clearUI() {
         txtMetre.text = "0"
         txtMile.text = "0"
@@ -125,6 +130,7 @@ class LengthViewController: ParentUIViewController {
         txtInch.text = "0"
     }
     
+    // Disable soft keyboard
     func disableSoftKeyboard() {
         txtMetre.inputView = UIView()
         txtMile.inputView = UIView()

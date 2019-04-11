@@ -8,8 +8,10 @@
 
 import UIKit
 
+// View controller for the keyboard container
 class KeyboardViewController: UIViewController {
     
+    // Negate button outlet
     @IBOutlet weak var btnNegate: UIButton!
     
     override func viewDidLoad() {
@@ -17,7 +19,7 @@ class KeyboardViewController: UIViewController {
         btnNegate.isHidden = true
     }
     
-    
+    // Action called when any button on the keyboard is pressed
     @IBAction func keyboardButtonPressed(_ sender: UIButton) {
         let vc = self.parent as! ParentUIViewController
         vc.keyboardKeyPressed(value: (sender.titleLabel?.text!)!)

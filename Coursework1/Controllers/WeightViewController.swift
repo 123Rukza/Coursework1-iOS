@@ -8,8 +8,10 @@
 
 import UIKit
 
+// View controller for Weight view
 class WeightViewController: ParentUIViewController {
     
+    // Text field outlets
     @IBOutlet weak var txtKilograms: UITextField!
     @IBOutlet weak var txtGrams: UITextField!
     @IBOutlet weak var txtOunces: UITextField!
@@ -22,10 +24,12 @@ class WeightViewController: ParentUIViewController {
         disableSoftKeyboard()
     }
     
+    // Override parent method to get text input from keyboard
     override func keyboardKeyPressed(value: String) {
         var selectedText: UITextField? = nil
         var unit: String = "none"
         
+        // Get selected text field
         if(txtKilograms.isFirstResponder) {
             selectedText = txtKilograms
             unit = "kg"
@@ -43,18 +47,17 @@ class WeightViewController: ParentUIViewController {
             unit = "s"
         }
         
+        // If delete key is pressed
         if (value != "DEL") {
-            if(unit != "none"){
-                if(!(value == "." && (selectedText?.text?.contains("."))!))
-                {
-                    selectedText?.text = ((selectedText?.text!)!) + value
-                    
-                    if(selectedText?.text?.first == "0") {
-                        selectedText?.text = String((selectedText?.text?.dropFirst())!)
-                    }
-                    
-                    updateUI(selectedText: selectedText!, unit: unit, value: value)
+            if(!(value == "." && (selectedText?.text?.contains("."))!)) // Check if decimal place is already there
+            {
+                selectedText?.text = ((selectedText?.text!)!) + value
+                
+                if(selectedText?.text?.first == "0") {
+                    selectedText?.text = String((selectedText?.text?.dropFirst())!)
                 }
+                
+                updateUI(selectedText: selectedText!, unit: unit, value: value)
             }
         } else {
             selectedText?.text = String((selectedText?.text?.dropLast())!)
@@ -67,13 +70,16 @@ class WeightViewController: ParentUIViewController {
         }
     }
     
+    // Method to generalize UI update
     func updateUI(selectedText: UITextField, unit:String, value: String) {
         let unitKG = UnitConversions.standardizeToKilogram(unit: unit, value: Double(selectedText.text!)!)
         setValuesToUI(unit: unit, kgValue: unitKG)
     }
     
+    // Update text fields in the UI
     func setValuesToUI(unit: String, kgValue: Double) {
         
+        // Update all text fields except for the currently selected
         if (unit == "kg") {
             txtGrams.text = String(format:"%.2f", UnitConversions.toGram(value: kgValue))
             txtOunces.text = String(format:"%.2f", UnitConversions.toOunce(value: kgValue))
@@ -102,6 +108,7 @@ class WeightViewController: ParentUIViewController {
         }
     }
     
+    // Set text field values to zero
     func clearUI() {
         txtKilograms.text = "0"
         txtGrams.text = "0"
@@ -110,6 +117,7 @@ class WeightViewController: ParentUIViewController {
         txtStone.text = "0"
     }
     
+    // Disable software keyboard
     func disableSoftKeyboard() {
         txtKilograms.inputView = UIView()
         txtGrams.inputView = UIView()

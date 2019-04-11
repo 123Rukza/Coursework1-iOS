@@ -8,8 +8,10 @@
 
 import UIKit
 
+// Volume view controller
 class VolumeViewController: ParentUIViewController {
     
+    // Text field outlets
     @IBOutlet weak var txtGallon: UITextField!
     @IBOutlet weak var txtLitre: UITextField!
     @IBOutlet weak var txtPint: UITextField!
@@ -21,6 +23,7 @@ class VolumeViewController: ParentUIViewController {
         clearUI()
     }
     
+    // Override parent method to get keyboard input
     override func keyboardKeyPressed(value: String) {
         var selectedText: UITextField? = nil
         var unit: String = "none"
@@ -42,6 +45,7 @@ class VolumeViewController: ParentUIViewController {
             unit = "m"
         }
         
+        // Check if delete key is pressed
         if (value != "DEL") {
             if(unit != "none"){
                 if(!(value == "." && (selectedText?.text?.contains("."))!))
@@ -66,11 +70,13 @@ class VolumeViewController: ParentUIViewController {
         }
     }
     
+    // generalised UI update method
     func updateUI(selectedText: UITextField, unit:String, value: String) {
         let unitKG = UnitConversions.standardizeToGallon(unit: unit, value: Double(selectedText.text!)!)
         setValuesToUI(unit: unit, kgValue: unitKG)
     }
     
+    // Update the UI
     func setValuesToUI(unit: String, kgValue: Double) {
         
         if (unit == "g") {
@@ -101,6 +107,7 @@ class VolumeViewController: ParentUIViewController {
         }
     }
     
+    // Clean UI with zeroes
     func clearUI() {
         txtGallon.text = "0"
         txtLitre.text = "0"
@@ -109,6 +116,7 @@ class VolumeViewController: ParentUIViewController {
         txtMillilitre.text = "0"
     }
     
+    // Disable software keyboard
     func diisableSoftKeyboard() {
         txtGallon.inputView = UIView()
         txtLitre.inputView = UIView()
