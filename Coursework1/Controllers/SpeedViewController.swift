@@ -95,4 +95,10 @@ class SpeedViewController: ParentUIViewController {
         txtNMPH.text = "0"
     }
 
+    func disableSoftkeyboard() {
+        txtMs.inputView = UIView()
+        txtKMPH.inputView = UIView()
+        txtMPH.inputView = UIView()
+        txtNMPH.inputView = UIView()
+    }
 }

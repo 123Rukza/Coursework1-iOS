@@ -109,4 +109,11 @@ class VolumeViewController: ParentUIViewController {
         txtMillilitre.text = "0"
     }
     
+    func diisableSoftKeyboard() {
+        txtGallon.inputView = UIView()
+        txtLitre.inputView = UIView()
+        txtPint.inputView = UIView()
+        txtFluidOunce.inputView = UIView()
+        txtMillilitre.inputView = UIView()
+    }
 }

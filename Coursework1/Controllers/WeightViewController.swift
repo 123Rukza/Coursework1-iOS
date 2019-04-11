@@ -19,6 +19,7 @@ class WeightViewController: ParentUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         clearUI()
+        disableSoftKeyboard()
     }
     
     override func keyboardKeyPressed(value: String) {
@@ -109,4 +110,11 @@ class WeightViewController: ParentUIViewController {
         txtStone.text = "0"
     }
     
+    func disableSoftKeyboard() {
+        txtKilograms.inputView = UIView()
+        txtGrams.inputView = UIView()
+        txtOunces.inputView = UIView()
+        txtPounds.inputView = UIView()
+        txtStone.inputView = UIView()
+    }
 }

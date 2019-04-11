@@ -124,4 +124,13 @@ class LengthViewController: ParentUIViewController {
         txtYard.text = "0"
         txtInch.text = "0"
     }
+    
+    func disableSoftKeyboard() {
+        txtMetre.inputView = UIView()
+        txtMile.inputView = UIView()
+        txtCentimeter.inputView = UIView()
+        txtMillimeter.inputView = UIView()
+        txtYard.inputView = UIView()
+        txtInch.inputView = UIView()
+    }
 }

@@ -91,4 +91,10 @@ class TemperatureViewController: ParentUIViewController {
         txtKelvin.text = "0"
         txtCelcius.text = "0"
     }
+    
+    func disableSoftKeyboard() {
+        txtFarenheit.inputView = UIView()
+        txtKelvin.inputView = UIView()
+        txtCelcius.inputView = UIView()
+    }
 }
