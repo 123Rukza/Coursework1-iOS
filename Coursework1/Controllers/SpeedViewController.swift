@@ -10,7 +10,7 @@ import UIKit
 
 // Speed view controller
 class SpeedViewController: ParentUIViewController {
-
+    
     // Text field outlets
     @IBOutlet weak var txtMs: UITextField!
     @IBOutlet weak var txtKMPH: UITextField!
@@ -42,9 +42,10 @@ class SpeedViewController: ParentUIViewController {
             unit = "nmph"
         }
         
-        // Press if delete key is pressed
-        if (value != "DEL") {
-            if(unit != "none"){
+        
+        if(unit != "none"){
+            // Press if delete key is pressed
+            if (value != "DEL") {
                 if(!(value == "." && (selectedText?.text?.contains("."))!))
                 {
                     selectedText?.text = ((selectedText?.text!)!) + value
@@ -55,14 +56,14 @@ class SpeedViewController: ParentUIViewController {
                     
                     updateUI(selectedText: selectedText!, unit: unit, value: value)
                 }
-            }
-        } else {
-            selectedText?.text = String((selectedText?.text?.dropLast())!)
-            
-            if((selectedText?.text?.count)! > 0) {
-                updateUI(selectedText: selectedText!, unit: unit, value: value)
             } else {
-                clearUI()
+                selectedText?.text = String((selectedText?.text?.dropLast())!)
+                
+                if((selectedText?.text?.count)! > 0) {
+                    updateUI(selectedText: selectedText!, unit: unit, value: value)
+                } else {
+                    clearUI()
+                }
             }
         }
     }
@@ -102,7 +103,7 @@ class SpeedViewController: ParentUIViewController {
         txtMPH.text = "0"
         txtNMPH.text = "0"
     }
-
+    
     // Disable soft keyboard
     func disableSoftkeyboard() {
         txtMs.inputView = UIView()
@@ -111,6 +112,7 @@ class SpeedViewController: ParentUIViewController {
         txtNMPH.inputView = UIView()
     }
     
+    // Save button pressed
     @IBAction func btnSavePressed(_ sender: UIBarButtonItem) {
         var message = "Saving failed! Please enter values first"
         
@@ -124,6 +126,7 @@ class SpeedViewController: ParentUIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // History button pressed
     @IBAction func btnHistoryPressed(_ sender: UIBarButtonItem) {
         let storage = UnitConversionStorage.load(key: "speed")
         if (storage.count > 0) {
@@ -137,7 +140,8 @@ class SpeedViewController: ParentUIViewController {
         }
     }
     
+    // Function to get printable string with values
     func printString()->String {
-        return txtMs.text! + " metres/sec = " + txtKMPH.text! + " km/hour = " + txtMPH.text! + " miles/hour = " + txtNMPH.text! + " Nautical miles/hour"
+        return String(format: "%.4f", Double(txtMs.text!)!) + " metres/sec = " + String(format: "%.4f", Double(txtKMPH.text!)!) + " km/hour = " + String(format: "%.4f", Double(txtMPH.text!)!) + " miles/hour = " + String(format: "%.4f", Double(txtNMPH.text!)!) + " Nautical miles/hour"
     }
 }

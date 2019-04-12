@@ -45,27 +45,31 @@ class WeightViewController: ParentUIViewController {
         } else if (txtStone.isFirstResponder) {
             selectedText = txtStone
             unit = "s"
+        } else {
+            unit = "none"
         }
         
-        // If delete key is pressed
-        if (value != "DEL") {
-            if(!(value == "." && (selectedText?.text?.contains("."))!)) // Check if decimal place is already there
-            {
-                selectedText?.text = ((selectedText?.text!)!) + value
-                
-                if(selectedText?.text?.first == "0") {
-                    selectedText?.text = String((selectedText?.text?.dropFirst())!)
+        if ( unit != "none"){
+            // If delete key is pressed
+            if (value != "DEL") {
+                if(!(value == "." && (selectedText?.text?.contains("."))!)) // Check if decimal place is already there
+                {
+                    selectedText?.text = ((selectedText?.text!)!) + value
+                    
+                    if(selectedText?.text?.first == "0") {
+                        selectedText?.text = String((selectedText?.text?.dropFirst())!)
+                    }
+                    
+                    updateUI(selectedText: selectedText!, unit: unit, value: value)
                 }
-                
-                updateUI(selectedText: selectedText!, unit: unit, value: value)
-            }
-        } else {
-            selectedText?.text = String((selectedText?.text?.dropLast())!)
-            
-            if((selectedText?.text?.count)! > 0) {
-                updateUI(selectedText: selectedText!, unit: unit, value: value)
             } else {
-                clearUI()
+                selectedText?.text = String((selectedText?.text?.dropLast())!)
+                
+                if((selectedText?.text?.count)! > 0) {
+                    updateUI(selectedText: selectedText!, unit: unit, value: value)
+                } else {
+                    clearUI()
+                }
             }
         }
     }
@@ -126,6 +130,7 @@ class WeightViewController: ParentUIViewController {
         txtStone.inputView = UIView()
     }
     
+    // Save button pressed
     @IBAction func btnSavePressed(_ sender: UIBarButtonItem) {
         var message = "Saving failed! Please enter values first"
         
@@ -139,6 +144,7 @@ class WeightViewController: ParentUIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // History button pressed
     @IBAction func btnHistoryPressed(_ sender: UIBarButtonItem) {
         let storage = UnitConversionStorage.load(key: "weight")
         if (storage.count > 0) {
@@ -152,7 +158,8 @@ class WeightViewController: ParentUIViewController {
         }
     }
     
+    // Prinatble string of values
     func printString()->String {
-        return txtKilograms.text! + " kilograms = " + txtGrams.text! + " grams = " + txtOunces.text! + " ounces = " + txtPounds.text! + " pounds = " + txtStone.text! + " stones"
+        return String(format: "%.4f", Double(txtKilograms.text!)!) + " kilograms = " + String(format: "%.4f", Double(txtGrams.text!)!) + " grams = " + String(format: "%.4f", Double(txtOunces.text!)!) + " ounces = " + String(format: "%.4f", Double(txtPounds.text!)!) + " pounds = " + String(format: "%.4f", Double(txtStone.text!)!) + " stones"
     }
 }

@@ -50,25 +50,27 @@ class LengthViewController: ParentUIViewController {
             unit = "i"
         }
         
-        // Check if delete is pressed
-        if (value != "DEL") {
-            if(!(value == "." && (selectedText?.text?.contains("."))!))
-            {
-                selectedText?.text = ((selectedText?.text!)!) + value
-                
-                if(selectedText?.text?.first == "0") {
-                    selectedText?.text = String((selectedText?.text?.dropFirst())!)
+        if (unit != "none"){
+            // Check if delete is pressed
+            if (value != "DEL") {
+                if(!(value == "." && (selectedText?.text?.contains("."))!))
+                {
+                    selectedText?.text = ((selectedText?.text!)!) + value
+                    
+                    if(selectedText?.text?.first == "0") {
+                        selectedText?.text = String((selectedText?.text?.dropFirst())!)
+                    }
+                    
+                    updateUI(selectedText: selectedText!, unit: unit, value: value)
                 }
-                
-                updateUI(selectedText: selectedText!, unit: unit, value: value)
-            }
-        } else {
-            selectedText?.text = String((selectedText?.text?.dropLast())!)
-            
-            if((selectedText?.text?.count)! > 0) {
-                updateUI(selectedText: selectedText!, unit: unit, value: value)
             } else {
-                clearUI()
+                selectedText?.text = String((selectedText?.text?.dropLast())!)
+                
+                if((selectedText?.text?.count)! > 0) {
+                    updateUI(selectedText: selectedText!, unit: unit, value: value)
+                } else {
+                    clearUI()
+                }
             }
         }
     }
@@ -141,6 +143,7 @@ class LengthViewController: ParentUIViewController {
         txtInch.inputView = UIView()
     }
     
+    // Save button pressed
     @IBAction func btnSavePressed(_ sender: UIBarButtonItem) {
         var message = "Saving failed! Please enter values first"
         
@@ -154,6 +157,7 @@ class LengthViewController: ParentUIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // History button pressed
     @IBAction func btnHistoryPressed(_ sender: UIBarButtonItem) {
         let storage = UnitConversionStorage.load(key: "length")
         if (storage.count > 0) {
@@ -167,7 +171,8 @@ class LengthViewController: ParentUIViewController {
         }
     }
     
+    // Get printable string 
     func printString()->String {
-        return txtMetre.text! + " metres = " + txtMile.text! + " miles = " + txtCentimeter.text! + " centimeters = " + txtMillimeter.text! + " millimeters = " + txtYard.text! + " yards = " + txtInch.text! + " inches"
+        return String(format: "%.4f", Double(txtMetre.text!)!) + " metres = " + String(format: "%.4f", Double(txtMile.text!)!) + " miles = " + String(format: "%.4f", Double(txtCentimeter.text!)!) + " centimeters = " + String(format: "%.4f", Double(txtMillimeter.text!)!) + " millimeters = " + String(format: "%.4f", Double(txtYard.text!)!) + " yards = " + String(format: "%.4f", Double(txtInch.text!)!) + " inches"
     }
 }

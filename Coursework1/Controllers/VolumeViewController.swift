@@ -46,9 +46,9 @@ class VolumeViewController: ParentUIViewController {
             unit = "m"
         }
         
-        // Check if delete key is pressed
-        if (value != "DEL") {
-            if(unit != "none"){
+        if(unit != "none"){
+            // Check if delete key is pressed
+            if (value != "DEL") {
                 if(!(value == "." && (selectedText?.text?.contains("."))!))
                 {
                     selectedText?.text = ((selectedText?.text!)!) + value
@@ -59,14 +59,14 @@ class VolumeViewController: ParentUIViewController {
                     
                     updateUI(selectedText: selectedText!, unit: unit, value: value)
                 }
-            }
-        } else {
-            selectedText?.text = String((selectedText?.text?.dropLast())!)
-            
-            if((selectedText?.text?.count)! > 0) {
-                updateUI(selectedText: selectedText!, unit: unit, value: value)
             } else {
-                clearUI()
+                selectedText?.text = String((selectedText?.text?.dropLast())!)
+                
+                if((selectedText?.text?.count)! > 0) {
+                    updateUI(selectedText: selectedText!, unit: unit, value: value)
+                } else {
+                    clearUI()
+                }
             }
         }
     }
@@ -126,6 +126,7 @@ class VolumeViewController: ParentUIViewController {
         txtMillilitre.inputView = UIView()
     }
     
+    // Save button pressed
     @IBAction func btnSavePressed(_ sender: UIBarButtonItem) {
         var message = "Saving failed! Please enter values first"
         
@@ -139,6 +140,7 @@ class VolumeViewController: ParentUIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // View history button pressed
     @IBAction func btnHistoryPressed(_ sender: UIBarButtonItem) {
         let storage = UnitConversionStorage.load(key: "volume")
         if (storage.count > 0) {
@@ -152,8 +154,9 @@ class VolumeViewController: ParentUIViewController {
         }
     }
     
+    // function to get printable values of all fields
     func printString()->String {
-        return txtGallon.text! + " gallons = " + txtLitre.text! + " litres = " + txtPint.text! + " UK pints = " + txtFluidOunce.text! + " fluid ounces = " + txtMillilitre.text! + " millilitres"
+        return String(format: "%.4f", txtGallon.text!) + " gallons = " + String(format: "%.4f", txtLitre.text!) + " litres = " + String(format: "%.4f", txtPint.text!) + " UK pints = " + String(format: "%.4f", txtFluidOunce.text!) + " fluid ounces = " + String(format: "%.4f", txtMillilitre.text!) + " millilitres"
     }
     
 }

@@ -36,41 +36,43 @@ class TemperatureViewController: ParentUIViewController {
         if(txtCelcius.isFirstResponder) {
             selectedText = txtCelcius
             unit = "c"
-        } else if (txtKelvin.isFirstResponder) {
-            selectedText = txtKelvin
-            unit = "k"
-        } else if (txtFarenheit.isFirstResponder){
+        } else if (txtFarenheit.isFirstResponder) {
             selectedText = txtFarenheit
             unit = "f"
+        } else if (txtKelvin.isFirstResponder){
+            selectedText = txtKelvin
+            unit = "k"
         }
         
-        // Checking for both delete and negation
-        if (value != "DEL" && value != "+/-") {
-            if(!(value == "." && (selectedText?.text?.contains("."))!))
-            {
-                selectedText?.text = ((selectedText?.text!)!) + value
-                
-                if(selectedText?.text?.first == "0") {
-                    selectedText?.text = String((selectedText?.text?.dropFirst())!)
+        if (unit != "none") {
+            // Checking for both delete and negation
+            if (value != "DEL" && value != "+/-") {
+                if(!(value == "." && (selectedText?.text?.contains("."))!))
+                {
+                    selectedText?.text = ((selectedText?.text!)!) + value
+                    
+                    if(selectedText?.text?.first == "0") {
+                        selectedText?.text = String((selectedText?.text?.dropFirst())!)
+                    }
+                    
+                    updateUI(selectedText: selectedText!, unit: unit, value: value)
                 }
+                // Don't apply negation if amount of characters is = 0
+            } else if (value == "+/-" && (selectedText?.text?.count)! > 0) {
+                if ((selectedText?.text?.contains("-"))!) {
+                    selectedText?.text = String((selectedText?.text?.dropFirst())!)
+                } else {
+                    selectedText?.text = "-" + (selectedText?.text)!
+                }
+                updateUI(selectedText: selectedText!, unit: unit, value: value)
+            } else if (value == "DEL"){
+                selectedText?.text = String((selectedText?.text?.dropLast())!)
                 
-                updateUI(selectedText: selectedText!, unit: unit, value: value)
-            }
-        // Don't apply negation if amount of characters is = 0
-        } else if (value == "+/-" && (selectedText?.text?.count)! > 0) {
-            if ((selectedText?.text?.contains("-"))!) {
-                selectedText?.text = String((selectedText?.text?.dropFirst())!)
-            } else {
-                selectedText?.text = "-" + (selectedText?.text)!
-            }
-            updateUI(selectedText: selectedText!, unit: unit, value: value)
-        } else {
-            selectedText?.text = String((selectedText?.text?.dropLast())!)
-            
-            if((selectedText?.text?.count)! > 0) {
-                updateUI(selectedText: selectedText!, unit: unit, value: value)
-            } else {
-                clearUI()
+                if((selectedText?.text?.count)! > 0) {
+                    updateUI(selectedText: selectedText!, unit: unit, value: value)
+                } else {
+                    clearUI()
+                }
             }
         }
     }
@@ -109,6 +111,7 @@ class TemperatureViewController: ParentUIViewController {
         txtCelcius.inputView = UIView()
     }
     
+    // Save button pressed
     @IBAction func btnSavePressed(_ sender: UIBarButtonItem) {
         var message = "Saving failed! Please enter values first"
         
@@ -122,6 +125,7 @@ class TemperatureViewController: ParentUIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // History button pressed
     @IBAction func btnHistoryPressed(_ sender: UIBarButtonItem) {
         let storage = UnitConversionStorage.load(key: "temperature")
         if (storage.count > 0) {
@@ -135,7 +139,8 @@ class TemperatureViewController: ParentUIViewController {
         }
     }
     
+    // Get printable string
     func printString()->String {
-        return txtFarenheit.text! + " Farenheit = " + txtKelvin.text! + " Kelvin = " + txtCelcius.text! + " Celsius"
+        return String(format: "%.4f", Double(txtFarenheit.text!)!) + " Farenheit = " + String(format: "%.4f", Double(txtKelvin.text!)!) + " Kelvin = " + String(format: "%.4f", Double(txtCelcius.text!)!) + " Celsius"
     }
 }
