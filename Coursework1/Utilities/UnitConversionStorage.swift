@@ -16,10 +16,11 @@ class UnitConversionStorage: NSObject {
         var storage:[String] = []
         
         if (UserDefaults.standard.object(forKey: key) != nil) {
+            storage = UserDefaults.standard.object(forKey: key) as! [String]
             if (storage.count == 5) {
                 storage = Array(storage.dropLast())
             }
-            storage = [value] + (UserDefaults.standard.object(forKey: key) as! [String])
+            storage = [value] + storage
         } else {
             storage.append(value)
         }

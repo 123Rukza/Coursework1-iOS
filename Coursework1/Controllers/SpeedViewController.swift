@@ -115,7 +115,7 @@ class SpeedViewController: ParentUIViewController {
         var message = "Saving failed! Please enter values first"
         
         if (txtMs.text! != "0" && txtMs.text! != "") {
-            UnitConversionStorage.store(key: "speed", value: txtMs.text!)
+            UnitConversionStorage.store(key: "speed", value: printString())
             message = "Successfully saved"
         }
         
@@ -135,5 +135,9 @@ class SpeedViewController: ParentUIViewController {
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func printString()->String {
+        return txtMs.text! + " metres/sec = " + txtKMPH.text! + " km/hour = " + txtMPH.text! + " miles/hour = " + txtNMPH.text! + " Nautical miles/hour"
     }
 }

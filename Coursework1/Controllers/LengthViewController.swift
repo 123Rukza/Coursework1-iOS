@@ -145,7 +145,7 @@ class LengthViewController: ParentUIViewController {
         var message = "Saving failed! Please enter values first"
         
         if (txtMetre.text! != "0" && txtMetre.text! != "") {
-            UnitConversionStorage.store(key: "length", value: txtMetre.text!)
+            UnitConversionStorage.store(key: "length", value: printString())
             message = "Successfully saved"
         }
         
@@ -165,5 +165,9 @@ class LengthViewController: ParentUIViewController {
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func printString()->String {
+        return txtMetre.text! + " metres = " + txtMile.text! + " miles = " + txtCentimeter.text! + " centimeters = " + txtMillimeter.text! + " millimeters = " + txtYard.text! + " yards = " + txtInch.text! + " inches"
     }
 }

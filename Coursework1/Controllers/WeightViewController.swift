@@ -130,7 +130,7 @@ class WeightViewController: ParentUIViewController {
         var message = "Saving failed! Please enter values first"
         
         if (txtKilograms.text! != "0" && txtKilograms.text! != "") {
-            UnitConversionStorage.store(key: "weight", value: txtKilograms.text!)
+            UnitConversionStorage.store(key: "weight", value: printString())
             message = "Successfully saved"
         }
         
@@ -150,5 +150,9 @@ class WeightViewController: ParentUIViewController {
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func printString()->String {
+        return txtKilograms.text! + " kilograms = " + txtGrams.text! + " grams = " + txtOunces.text! + " ounces = " + txtPounds.text! + " pounds = " + txtStone.text! + " stones"
     }
 }

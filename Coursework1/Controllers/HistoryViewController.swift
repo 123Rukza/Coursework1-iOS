@@ -24,7 +24,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
         cell.textLabel?.text = storage[indexPath.row]
-        
+        cell.textLabel?.numberOfLines = 0
         return cell
     }
     

@@ -130,7 +130,7 @@ class VolumeViewController: ParentUIViewController {
         var message = "Saving failed! Please enter values first"
         
         if (txtGallon.text! != "0" && txtGallon.text! != "") {
-            UnitConversionStorage.store(key: "volume", value: txtGallon.text!)
+            UnitConversionStorage.store(key: "volume", value: printString())
             message = "Successfully saved"
         }
         
@@ -151,4 +151,9 @@ class VolumeViewController: ParentUIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func printString()->String {
+        return txtGallon.text! + " gallons = " + txtLitre.text! + " litres = " + txtPint.text! + " UK pints = " + txtFluidOunce.text! + " fluid ounces = " + txtMillilitre.text! + " millilitres"
+    }
+    
 }

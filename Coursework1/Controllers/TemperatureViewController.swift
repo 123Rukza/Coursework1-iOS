@@ -113,7 +113,7 @@ class TemperatureViewController: ParentUIViewController {
         var message = "Saving failed! Please enter values first"
         
         if (txtCelcius.text! != "0" && txtCelcius.text! != "") {
-            UnitConversionStorage.store(key: "temperature", value: txtCelcius.text!)
+            UnitConversionStorage.store(key: "temperature", value: printString())
             message = "Successfully saved"
         }
         
@@ -133,5 +133,9 @@ class TemperatureViewController: ParentUIViewController {
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func printString()->String {
+        return txtFarenheit.text! + " Farenheit = " + txtKelvin.text! + " Kelvin = " + txtCelcius.text! + " Celsius"
     }
 }
