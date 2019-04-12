@@ -156,7 +156,7 @@ class VolumeViewController: ParentUIViewController {
     
     // function to get printable values of all fields
     func printString()->String {
-        return String(format: "%.4f", txtGallon.text!) + " gallons = " + String(format: "%.4f", txtLitre.text!) + " litres = " + String(format: "%.4f", txtPint.text!) + " UK pints = " + String(format: "%.4f", txtFluidOunce.text!) + " fluid ounces = " + String(format: "%.4f", txtMillilitre.text!) + " millilitres"
+        return String(format: "%.4f", Double(txtGallon.text!)!) + " gallons = " + String(format: "%.4f", Double(txtLitre.text!)!) + " litres = " + String(format: "%.4f", Double(txtPint.text!)!) + " UK pints = " + String(format: "%.4f", Double(txtFluidOunce.text!)!) + " fluid ounces = " + String(format: "%.4f", Double(txtMillilitre.text!)!) + " millilitres"
     }
     
 }
