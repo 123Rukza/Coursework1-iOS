@@ -68,7 +68,7 @@ class TemperatureViewController: ParentUIViewController {
             } else if (value == "DEL"){
                 selectedText?.text = String((selectedText?.text?.dropLast())!)
                 
-                if((selectedText?.text?.count)! > 0) {
+                if((selectedText?.text?.count)! > 0 && selectedText?.text! != "-") {
                     updateUI(selectedText: selectedText!, unit: unit, value: value)
                 } else {
                     clearUI()
