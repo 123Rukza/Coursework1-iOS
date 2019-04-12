@@ -12,12 +12,27 @@ import UIKit
 class UnitConversionStorage: NSObject {
     
     // Saving data
-    static func store (key:String, object:AnyObject) {
-        UserDefaults.standard.set(object, forKey: key)
+    static func store (key:String, value: String) {
+        var storage:[String] = []
+        
+        if (UserDefaults.standard.object(forKey: key) != nil) {
+            if (storage.count == 5) {
+                storage = Array(storage.dropLast())
+            }
+            storage = [value] + (UserDefaults.standard.object(forKey: key) as! [String])
+        } else {
+            storage.append(value)
+        }
+        
+        UserDefaults.standard.set(storage, forKey: key)
     }
     
     // Retrieving data
-    static func load(key:String)-> AnyObject {
-        return UserDefaults.standard.object(forKey: key) as AnyObject
+    static func load(key:String)-> [String] {
+        if (UserDefaults.standard.object(forKey: key) != nil) {
+            return UserDefaults.standard.object(forKey: key) as! [String]
+        } else {
+            return []
+        }
     }
 }

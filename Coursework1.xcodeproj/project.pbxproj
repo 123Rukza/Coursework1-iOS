@@ -11,6 +11,7 @@
 		0A3C7406224D5E170052F8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C7404224D5E170052F8E7 /* Main.storyboard */; };
 		0A3C7408224D5E190052F8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C7407224D5E190052F8E7 /* Assets.xcassets */; };
 		0A3C740B224D5E190052F8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C7409224D5E190052F8E7 /* LaunchScreen.storyboard */; };
+		0A7FE3E1226032B2005F990D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FE3E0226032B2005F990D /* HistoryViewController.swift */; };
 		0ADF92A9225DFB3E00AFC5F2 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF92A8225DFB3E00AFC5F2 /* KeyboardViewController.swift */; };
 		0ADF92AB225E00DB00AFC5F2 /* ParentUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF92AA225E00DB00AFC5F2 /* ParentUIViewController.swift */; };
 		0ADF92AE225E6AC200AFC5F2 /* UnitConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF92AD225E6AC200AFC5F2 /* UnitConversions.swift */; };
@@ -29,6 +30,7 @@
 		0A3C7407224D5E190052F8E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A3C740A224D5E190052F8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A3C740C224D5E190052F8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A7FE3E0226032B2005F990D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		0ADF92A8225DFB3E00AFC5F2 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		0ADF92AA225E00DB00AFC5F2 /* ParentUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentUIViewController.swift; sourceTree = "<group>"; };
 		0ADF92AD225E6AC200AFC5F2 /* UnitConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConversions.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				0AF9F1B1224E833C003428AA /* VolumeViewController.swift */,
 				0ADF92A8225DFB3E00AFC5F2 /* KeyboardViewController.swift */,
 				0ADF92AA225E00DB00AFC5F2 /* ParentUIViewController.swift */,
+				0A7FE3E0226032B2005F990D /* HistoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				0AF9F1B2224E833C003428AA /* VolumeViewController.swift in Sources */,
 				0ADF92B0225E7A0B00AFC5F2 /* UnitConversionStorage.swift in Sources */,
 				0A3C73FF224D5E170052F8E7 /* AppDelegate.swift in Sources */,
+				0A7FE3E1226032B2005F990D /* HistoryViewController.swift in Sources */,
 				0ADF92A9225DFB3E00AFC5F2 /* KeyboardViewController.swift in Sources */,
 				0AF9F1B0224E831C003428AA /* SpeedViewController.swift in Sources */,
 				0AF9F1AE224E830E003428AA /* LengthViewController.swift in Sources */,

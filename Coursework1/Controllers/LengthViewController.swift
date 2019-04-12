@@ -140,4 +140,30 @@ class LengthViewController: ParentUIViewController {
         txtYard.inputView = UIView()
         txtInch.inputView = UIView()
     }
+    
+    @IBAction func btnSavePressed(_ sender: UIBarButtonItem) {
+        var message = "Saving failed! Please enter values first"
+        
+        if (txtMetre.text! != "0" && txtMetre.text! != "") {
+            UnitConversionStorage.store(key: "length", value: txtMetre.text!)
+            message = "Successfully saved"
+        }
+        
+        let alert = UIAlertController(title: "Storage Status", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnHistoryPressed(_ sender: UIBarButtonItem) {
+        let storage = UnitConversionStorage.load(key: "length")
+        if (storage.count > 0) {
+            let destination = storyboard?.instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
+            destination.storage = storage
+            self.present(destination, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "No history found for this conversion", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }

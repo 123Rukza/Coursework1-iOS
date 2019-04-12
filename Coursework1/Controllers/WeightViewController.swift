@@ -125,4 +125,30 @@ class WeightViewController: ParentUIViewController {
         txtPounds.inputView = UIView()
         txtStone.inputView = UIView()
     }
+    
+    @IBAction func btnSavePressed(_ sender: UIBarButtonItem) {
+        var message = "Saving failed! Please enter values first"
+        
+        if (txtKilograms.text! != "0" && txtKilograms.text! != "") {
+            UnitConversionStorage.store(key: "weight", value: txtKilograms.text!)
+            message = "Successfully saved"
+        }
+        
+        let alert = UIAlertController(title: "Storage Status", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnHistoryPressed(_ sender: UIBarButtonItem) {
+        let storage = UnitConversionStorage.load(key: "weight")
+        if (storage.count > 0) {
+            let destination = storyboard?.instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
+            destination.storage = storage
+            self.present(destination, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "No history found for this conversion", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
